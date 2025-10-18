@@ -1,6 +1,6 @@
 from bst_node import BSTNode
 
-def is_valid_bst(root: BSTNode) -> bool:
+def is_valid(root: BSTNode) -> bool:
     keys = []
 
     def inorder(node: BSTNode):

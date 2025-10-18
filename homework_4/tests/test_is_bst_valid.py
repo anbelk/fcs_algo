@@ -1,23 +1,6 @@
 import pytest
 from bst_node import BSTNode
-
-def is_valid_bst(root):
-    keys = []
-
-    def inorder(node):
-        if node is None:
-            return
-        inorder(node.left)
-        keys.append(node.key)
-        inorder(node.right)
-
-    inorder(root)
-
-    for i in range(1, len(keys)):
-        if keys[i] <= keys[i - 1]:
-            return False
-    return True
-
+from is_bst_valid import is_valid
 
 class TestValidateBST:
     @pytest.mark.parametrize("tree, expected", [
@@ -44,5 +27,5 @@ class TestValidateBST:
                  BSTNode(4, BSTNode(2), BSTNode(6))),
          True),
     ])
-    def test_is_valid_bst(self, tree, expected):
-        assert is_valid_bst(tree) == expected
+    def test_is_bst_valid(self, tree, expected):
+        assert is_valid(tree) == expected
